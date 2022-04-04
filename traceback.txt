@@ -1,0 +1,30 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 29, in script
+    menu:
+  File "game/script.rpy", line 34, in <module>
+    "End game" if kobayashi_maru > 0:
+NameError: name 'kobayashi_maru' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 29, in script
+    menu:
+  File "renpy/ast.py", line 1688, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "renpy/exports.py", line 1026, in menu
+    condition = renpy.python.py_eval(condition)
+  File "renpy/python.py", line 2276, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 34, in <module>
+    "End game" if kobayashi_maru > 0:
+NameError: name 'kobayashi_maru' is not defined
+
+Windows-10-10.0.22000
+Ren'Py 7.4.11.2266
+The Kobayashi Maru Test 1.0
+Sun Apr  3 19:35:50 2022
