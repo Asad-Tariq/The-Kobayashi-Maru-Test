@@ -1,13 +1,8 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-define spock = Character("Spock")
+﻿define spock = Character("Spock")
 define kirk = Character("Kirk")
 image spock_talking = Image("images/characters/spock_dialogue.png")
 
-label save_crew:
+label rescue_crew:
 
     $ times_played += 1
 
@@ -27,51 +22,119 @@ label save_crew:
 
     "Computer Voice" "Warning. We have entered the Neutral Zone. ...Warning."
     
-    jump outro
+    show kirk_dialogue at right
 
-label abandon:
-    scene death_by_klingons
-    kirk "You die at the hands of the Klingons"
+    kirk "Stand by transporter room, ready to beam survivors abaord."
+
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "Captain, I've lost their signal!!"
+
+    hide kirk_dialogue
+    hide spock_talking
+
+    "Computer Voice" "Alert! Sensors indicate three Klingon Cruisers, bearing three one six, mark four, closing fast."
+
+    show kirk_dialogue at right
+
+    kirk "Visual! Battle stations! Activate shields!"
+
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "Shields activated!"
+
+    kirk "Inform the Klingons we are on a rescue mission."
+
+    spock "They're jamming the frequencies, Captain."
+
+    hide kirk_dialogue
+    hide spock_talking
+
+    "Computer Voice" "Klingons on attack course and closing."
+
+    show kirk_dialogue at right
+
+    kirk "Mister Spock, get us out of here!"
+
+    hide kirk_dialogue
+
+    "Computer Voice" "Alert! Klingon torpedoes activated."
+
+    "(An explosion rocks the bridge!)"
+
+    show kirk_dialogue at right
+
+    kirk "Damage report!"
+
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "Main energiser hit, Captain!"
+
+    kirk "Prepare to return fire!"
+
+    kirk "Fire all phasers!"
+
+    spock "No power to the weapons, Captain."
+
+    spock "Captain, it's no use... We're dead in space..."
+
+    hide kirk_dialogue
+    hide spock_talking
+
+    jump rescue_outro
+
+label abandon_crew:
+
     $ times_played += 1
+
+    scene death_by_klingons
+
+    kirk "You die at the hands of the Klingons"
+    
     jump menu_choices
 
-label outro:
-    kirk "Your crew gets destroyed"
+label reprogram_simulation:
     return
 
 label menu_choices:
 
     kirk "What should I do?"
 
-    menu:
-        "Save the Kobayashi Maru":
-            jump save_crew
-        "Abandon the Kobayashi Maru":
-            jump abandon
-        "End game" if times_played > 0:
-            jump outro
+    $ reprogram = renpy.random.random()
 
+    if reprogram > 0.88 and times_played > 2:
+        menu:
+            "Save the Kobayashi Maru":
+                $ times_rescued += 1
+                jump rescue_crew
+            "Abandon the Kobayashi Maru":
+                $ times_abandoned += 1
+                jump abandon_crew
+            "Reprogram the simulation":
+                jump reprogram_simulation
+
+    else:
+        menu:
+            "Save the Kobayashi Maru":
+                $ times_rescued += 1
+                jump rescue_crew
+            "Abandon the Kobayashi Maru":
+                $ times_abandoned += 1
+                jump abandon_crew
+
+label rescue_outro:
+    return
+
+label abandon_outro:
+    return
 
 label start:
 
-    # Create a variable that records the number of times the Kobayashi Maru
-    # Test has been taken.
-
-    $ times_played = 0
-    $ times_abandoned = 0
-    $ times_rescued = 0
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
+    call variables
     scene start_screen
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    # These display lines of dialogue.
 
     "Computer Voice" "Captain's log, stardate 8130.3. Starship Enterprise on training mission to Gamma Hydra, Section fourteen, coordinates twenty-two eighty-seven four. Approaching Neutral Zone, all systems normal and functioning."
 
@@ -117,3 +180,8 @@ label start:
     show kirk_dialogue at right
 
     jump menu_choices
+
+label variables:
+    $ times_played = 0
+    $ times_abandoned = 0
+    $ times_rescued = 0
