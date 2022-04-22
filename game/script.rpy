@@ -1,4 +1,6 @@
-﻿define spock = Character("Spock")
+﻿# from asyncore import loop
+
+define spock = Character("Spock")
 define kirk = Character("Kirk")
 image spock_talking = Image("images/characters/spock_dialogue.png")
 
@@ -132,6 +134,10 @@ label abandon_outro:
     return
 
 label start:
+
+    # play music "audio/StarTrek_TOS_Theme.ogg" loop
+
+    $renpy.sound.play("audio/StarTrek_TOS_Theme.ogg", loop=True)
 
     call variables
     scene start_screen

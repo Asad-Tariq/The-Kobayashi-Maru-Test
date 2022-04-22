@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 61: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
-    zoom 1.5
-    ^
+File "game/script.rpy", line 1: expected statement.
+    from asyncore import loop
+                             ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sat Apr  2 22:29:15 2022
+Fri Apr 22 22:51:49 2022
