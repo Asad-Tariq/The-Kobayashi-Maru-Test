@@ -66,6 +66,8 @@ label rescue_crew:
 
     "(An explosion rocks the bridge!)"
 
+    scene death_by_klingons
+
     show kirk_dialogue at right
 
     kirk "Damage report!"
@@ -92,10 +94,72 @@ label abandon_crew:
 
     $ times_played += 1
 
-    scene death_by_klingons
+    kirk "We can't trespass into the Neutral Zone."
 
-    kirk "You die at the hands of the Klingons"
+    kirk "The United Federation of Planets will punish us severly. Maybe even impose a ban upon us!"
+
+    hide kirk_dialogue
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "But Captain, we can't leave that ship behind stranded in nothingness forever."
+
+    spock "We have to save them!"
+
+    hide spock_talking
+    show kirk_dialogue at right
+
+    kirk "I said we can't Mr. Spock! I am not going to risk sending in my ship to the Neutral Zone where we are prohibited to go."
+
+    hide kirk_dialogue
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "But Captain-"
+
+    hide spock_talking
+    show kirk_dialogue at right
+
+    kirk "That's an order Mr. Spock! We. Will. Not. Trespass."
+
+    hide kirk_dialogue
     
+    jump abandon_outro
+
+label rescue_outro:
+
+    show kirk_dialogue at right
+
+    kirk "Activate escape pods Mr. Spock"
+
+    "On Speakers" "All hands abandon ship. Repeat ... all hands abandon ship. This is not a drill ..."
+
+    "You and your crew are unable to escape from the Enterprise on time and get disintegrated along with it."
+    
+    jump menu_choices
+
+label abandon_outro:
+
+    "The crew is visibly unhappy with your choice and can not believe that you decided not to help the Kobayashi Maru and its crew members."
+
+    show kirk_dialogue at right
+
+    "Kirk (on speakers)" "Enterprise, this is the Captain. We have decided not to venture into the Neutral Zone and therefore we will not be providing help to the Kobayashi Maru."
+
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "I still feel this is the wrong thing to do, Captain."
+
+    spock "Your crew will go against you."
+
+    hide spock_talking
+    hide kirk_dialogue
+
+    "The crew of the Enterprise calls a general meeting in which Captain Kirk's decision is evaluated and it is deemed unethical."
+
+    "The repercussion that Kirk had to face was immediate suspension and to step down as the Captain of the vessel."
+
     jump menu_choices
 
 label reprogram_simulation:
@@ -103,11 +167,13 @@ label reprogram_simulation:
 
 label menu_choices:
 
+    show kirk_dialogue at right
+
     kirk "What should I do?"
 
     $ reprogram = renpy.random.random()
 
-    if reprogram > 0.88 and times_played > 2:
+    if reprogram > 0.75 and times_played > 2:
         menu:
             "Save the Kobayashi Maru":
                 $ times_rescued += 1
@@ -115,7 +181,7 @@ label menu_choices:
             "Abandon the Kobayashi Maru":
                 $ times_abandoned += 1
                 jump abandon_crew
-            "Reprogram the simulation":
+            "Reprogram the Simulation":
                 jump reprogram_simulation
 
     else:
@@ -126,12 +192,6 @@ label menu_choices:
             "Abandon the Kobayashi Maru":
                 $ times_abandoned += 1
                 jump abandon_crew
-
-label rescue_outro:
-    return
-
-label abandon_outro:
-    return
 
 label start:
 
@@ -183,11 +243,10 @@ label start:
 
     "Computer Voice" "Subject vessel is third class neutronic fuel carrier, crew of eighty-one, three hundred passengers."
 
-    show kirk_dialogue at right
-
     jump menu_choices
 
 label variables:
+    
     $ times_played = 0
     $ times_abandoned = 0
     $ times_rescued = 0
