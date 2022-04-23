@@ -195,12 +195,11 @@ label menu_choices:
 
 label start:
 
-    # play music "audio/StarTrek_TOS_Theme.ogg" loop
-
-    $renpy.sound.play("audio/StarTrek_TOS_Theme.ogg", loop=True)
-
     call variables
     scene start_screen
+
+    play music "audio/StarTrek_TOS_Theme.ogg" volume 0.15 fadein 2.5
+
 
     "Computer Voice" "Captain's log, stardate 8130.3. Starship Enterprise on training mission to Gamma Hydra, Section fourteen, coordinates twenty-two eighty-seven four. Approaching Neutral Zone, all systems normal and functioning."
 

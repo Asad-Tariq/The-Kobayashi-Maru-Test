@@ -1,49 +1,49 @@
-Fri Apr 22 22:54:53 2022
-Windows-10-10.0.19041
+Sat Apr 23 16:49:48 2022
+Windows-10-10.0.22000
 Ren'Py 7.4.11.2266
  
 
-Bootstrap to the start of init.init took 0.07s
-Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.02s
-Loading script took 0.21s
-Loading save slot metadata. took 0.02s
+Bootstrap to the start of init.init took 0.46s
+Early init took 0.01s
+Loader init took 0.07s
+Loading error handling took 0.18s
+Loading script took 2.11s
+Loading save slot metadata. took 0.08s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.07s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
+Running init code took 0.18s
+Loading analysis data took 0.07s
+Analyze and compile ATL took 0.01s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\rizsy\\AppData\\Roaming/RenPy/backups\\The-Kobayashi-Maru-Test':
-Dump and make backups. took 0.08s
+Backing up script files to 'C:\\Users\\DELL\\AppData\\Roaming/RenPy/backups\\The-Kobayashi-Maru-Test':
+Dump and make backups. took 0.56s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.250000
+Initial gc. took 0.12s
+DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: "Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
+Creating interface object took 0.03s
+Cleaning stores took 0.01s
+Init translation took 0.17s
+Build styles took 0.02s
 Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.03s
-Prepare screens took 0.05s
+Analyze screens took 0.05s
+Save screen analysis took 0.15s
+Prepare screens took 0.53s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
+Save bytecode. took 0.14s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.08s
+Interface start took 0.51s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
 Vendor: 'Intel'
-Renderer: 'Intel(R) UHD Graphics'
-Version: '4.6.0 - Build 27.20.100.8681'
+Renderer: 'Intel(R) HD Graphics 520'
+Version: '4.6.0 - Build 27.20.100.9664'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1733, 975) drawable=(1733, 975)
+Screen sizes: virtual=(1920, 1080) physical=(1739, 978) drawable=(1739, 978)
 Maximum texture size: 4096x4096

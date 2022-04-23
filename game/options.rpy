@@ -62,8 +62,8 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-define config.main_menu_music = "audio/StarTrek_TOS_Theme.ogg" 
-
+# define config.main_menu_music = "audio/StarTrek_TOS_Theme.ogg"
+# default preferences.set_volume("music", 0.15)
 
 ## Transitions #################################################################
 ##

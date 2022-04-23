@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1: expected statement.
-    from asyncore import loop
-                             ^
+File "game/options.rpy", line 66: expected '=' not found.
+    default preferences.set_volume("music", 0.15)
+                                  ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Fri Apr 22 22:51:49 2022
+Sat Apr 23 16:46:00 2022
