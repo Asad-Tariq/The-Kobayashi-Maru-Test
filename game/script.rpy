@@ -163,6 +163,110 @@ label abandon_outro:
     jump menu_choices
 
 label reprogram_simulation:
+    
+    kirk "Mr. Spock, take us to the ship. We'll make sure to rescue them."
+
+    hide kirk_dialogue
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "You sound so sure of yourself this time Captain."
+
+    spock "You've already lost in this simulation twice."
+
+    show kirk_dialogue at right
+
+    kirk "I do not believe in a no-win situation, Mr. Spock."
+
+    hide kirk_dialogue
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "Alright Captain, plotting a course for the Kobayashi Maru."
+
+    hide spock_talking
+
+    "The Enterprise enters the Neutral Zone and heads towards the ship."
+
+    "Computer Voice" "Alert! Sensors indicate three Klingon Cruisers, bearing three one six, mark four, closing fast."
+
+    show spock_talking at left:
+        zoom 1.90
+    
+    spock "Captain, we're getting pursued by the Klingons again."
+
+    show kirk_dialogue at right
+
+    kirk "Do not worry Mr. Spock, we won't loose this time."
+
+    kirk "Be ready to fire all phasers on my command."
+    
+    hide kirk_dialogue
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "Understood, Captain."
+
+    hide spock_talking
+
+    "Computer Voice" "The Klingons are closing in on us!"
+
+    show kirk_dialogue at right
+
+    kirk "Fire the phasers!"
+
+    hide kirk_dialogue
+    show spock_dialogue at left:
+        zoom 1.90
+
+    spock "But the shields..."
+
+    hide spock_talking
+    show kirk_dialogue at right
+
+    kirk "Just fire them Spock!"
+
+    hide kirk_dialogue
+
+    "Computer Voice" "Firing all phasers!"
+
+    "The three Klingon ships blow up on the bridge screen."
+
+    show kirk_dialogue at right
+
+    kirk "See, Mr. Spock. They have no shields."
+
+    hide kirk_dialogue
+    show spock_talking at left:
+        zoom 1.90
+
+    "Computer Voice" "The Klingons have been destroyed. Plotting a course to the Kobayashi Maru."
+
+    show kirk_dialogue at right
+
+    kirk "Ready to beam all survivors aboard, Mr. Spock?"
+
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "Transporter is operational, ready to beam survivors aboard Captain."
+
+    hide kirk_dialogue
+    hide spock_talking
+
+    "The survivors of the Kobayashi Maru were safely rescued with zero casualties or injuries."
+
+    "Later..."
+
+    show spock_talking at left:
+        zoom 1.90
+
+    spock "Did you tamper with the simulation Captain? I observed unusual behavior of the Klingons contrary to what it was programmed to be."
+
+    show kirk_dialogue at right
+
+    kirk "Like I said before Mr. Spock, I do not believe in no-win situations..."
+
     return
 
 label menu_choices:
@@ -171,9 +275,7 @@ label menu_choices:
 
     kirk "What should I do?"
 
-    $ reprogram = renpy.random.random()
-
-    if reprogram > 0.75 and times_played > 2:
+    if times_played >= 2:
         menu:
             "Save the Kobayashi Maru":
                 $ times_rescued += 1
