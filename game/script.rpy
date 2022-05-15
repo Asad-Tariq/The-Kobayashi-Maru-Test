@@ -136,7 +136,7 @@ label rescue_outro:
 
     "You and your crew are unable to escape from the Enterprise on time and get disintegrated along with it."
     
-    jump menu_choices
+    jump rescue_ending
 
 label abandon_outro:
 
@@ -160,7 +160,35 @@ label abandon_outro:
 
     "The repercussion that Kirk had to face was immediate suspension and to step down as the Captain of the vessel."
 
-    jump menu_choices
+    jump abandon_ending
+
+label abandon_ending:
+
+    "You chose to abandon the Kobayashi Maru and fail the simulation by being overthrown as the Captain."
+
+    "You have lost."
+
+    "Would you like to run the simulation again?"
+    menu:
+        "Run the simulation again":
+            jump menu_choices
+        "Quit the simulation":
+            return
+
+label rescue_ending:
+
+    scene start_screen
+
+    "You chose to rescue the Kobayashi Maru but were attacked and killed by the Klingons."
+
+    "You have lost."
+
+    "Would you like to run the simulation again?"
+    menu:
+        "Run the simulation again":
+            jump menu_choices
+        "Quit the simulation":
+            return
 
 label reprogram_simulation:
     
@@ -264,6 +292,10 @@ label reprogram_simulation:
     spock "Did you tamper with the simulation Captain? I observed unusual behavior of the Klingons contrary to what it was programmed to be."
 
     show kirk_dialogue at right
+
+    kirk "Indeed Mr. Spock. I reprogrammed the simulation so that the shields of the Klingons would not activate."
+
+    spock "But Captain-"
 
     kirk "Like I said before Mr. Spock, I do not believe in no-win situations..."
 
